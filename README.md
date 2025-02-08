@@ -13,7 +13,7 @@ console.log(result.raw);
 
 const prefix = `CPU: `;
 const start = result.indexOf(prefix) + prefix.length;
-console.log("CPU: ", result.slice(start, result.indexOf("\n", start)).trim());
+console.log("CPU:", result.slice(start, result.indexOf("\n", start)).trim());
 ```
 
 ## Docs
