@@ -3,6 +3,8 @@
 A lightweight shell command runner for Deno.
 
 ```ts
+#!/usr/bin/env -S deno run -A
+
 import { sh } from "jsr:@nomadshiba/sh-lite";
 
 const result = sh`fastfetch`;

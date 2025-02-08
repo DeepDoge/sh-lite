@@ -1,12 +1,12 @@
 /**
- * @module shCommand
+ * @module sh-lite
  * @description A utility module for executing shell commands synchronously in Deno.
  */
 
 /**
  * A string output type that includes the raw, unprocessed output.
- * @typedef {string & { raw: string }} ShOutput
  */
+export type ShOutput = string & { raw: string };
 
 /**
  * Executes a shell command synchronously using Deno.
@@ -15,7 +15,7 @@
  * @returns {ShOutput} The cleaned command output, with ANSI escape sequences removed.
  * @throws {Error} If the command fails, an error is thrown with the stderr output.
  */
-export function sh(...params) {
+export function sh(...params: Parameters<typeof String.raw>): ShOutput {
   const arg = String.raw(...params).trim();
   const command = new Deno.Command("/usr/bin/script", {
     args: ["-q", "/dev/null", "-c", arg],
@@ -38,7 +38,6 @@ export function sh(...params) {
 /**
  * Regular expression pattern to match ANSI escape sequences.
  * Used to remove color codes and other terminal formatting from output.
- * @constant {RegExp}
  */
 const ansiRegex = new RegExp(
   [
