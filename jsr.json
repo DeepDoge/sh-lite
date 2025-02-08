@@ -1,0 +1,10 @@
+{
+  "name": "@nomadshiba/sh-lite",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./mod.js"
+  },
+  "publish": {
+    "include": ["mod.js", "LICENSE", "README.md"]
+  }
+}
